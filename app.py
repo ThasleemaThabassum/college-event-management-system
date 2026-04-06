@@ -4,6 +4,10 @@
 #  File: app.py
 #  Run: streamlit run app.py
 # ============================================================
+import streamlit.components.v1 as components
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from io import BytesIO
 
 import streamlit as st
 import pandas as pd
@@ -363,6 +367,36 @@ def ai_recommendations(interests):
     ]
     return rec.head(3)
 
+def generate_pdf(name, event, prize, date, issued):
+    buffer = BytesIO()
+    doc = SimpleDocTemplate(buffer)
+    styles = getSampleStyleSheet()
+
+    content = []
+
+    content.append(Paragraph("<b>CERTIFICATE OF ACHIEVEMENT</b>", styles['Title']))
+    content.append(Spacer(1, 20))
+
+    content.append(Paragraph("This is to certify that", styles['Normal']))
+    content.append(Spacer(1, 10))
+
+    content.append(Paragraph(f"<b>{name}</b>", styles['Heading2']))
+    content.append(Spacer(1, 10))
+
+    content.append(Paragraph(f"has been awarded <b>{prize}</b>", styles['Normal']))
+    content.append(Spacer(1, 10))
+
+    content.append(Paragraph(f"in <b>{event}</b>", styles['Normal']))
+    content.append(Spacer(1, 20))
+
+    content.append(Paragraph(f"Date: {date}", styles['Normal']))
+    content.append(Paragraph(f"Issued: {issued}", styles['Normal']))
+
+    doc.build(content)
+    buffer.seek(0)
+    return buffer
+
+
 
 # ══════════════════════════════════════════════════════════════
 # PAGE 1 — DASHBOARD
@@ -701,35 +735,23 @@ def page_certificates():
             """, unsafe_allow_html=True)
 
             # Download button (generates a text-based certificate)
-            cert_text = f"""
-CERTIFICATE OF ACHIEVEMENT
-===========================
-This is to certify that
+            pdf = generate_pdf(
+    st.session_state.student_name,
+    row['event_title'],
+    row['prize'],
+    row['date'],
+    row['issued_date']
+)
 
-{st.session_state.student_name}
+st.download_button(
+    label="⬇ Download Certificate (PDF)",
+    data=pdf,
+    file_name=f"{row['event_title'].replace(' ','_')}.pdf",
+    mime="application/pdf",
+    use_container_width=True,
+    key=f"pdf_{idx}"
+)
 
-has been awarded
-
-{row['prize']}
-
-in
-
-{row['event_title']}
-
-Date: {row['date']}
-Issued: {row['issued_date']}
-
-- CEMS, College Event Management System
-            """.strip()
-
-            st.download_button(
-                label=f"⬇ Download Certificate",
-                data=cert_text,
-                file_name=f"certificate_{row['event_title'].replace(' ','_')}.txt",
-                mime="text/plain",
-                use_container_width=True,
-                key=f"dl_cert_{idx}"
-            )
             st.markdown("<br>", unsafe_allow_html=True)
 
 
