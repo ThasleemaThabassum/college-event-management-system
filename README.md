@@ -46,6 +46,13 @@ pip install streamlit pandas
 ```
 
 ---
+## Setup Instructions
+
+1. Install dependencies:
+   pip install -r requirements.txt
+
+2. Run the project:
+   python manage.py runserver
 
 ## ▶️ How to Run
 
