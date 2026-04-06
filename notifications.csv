@@ -1,0 +1,6 @@
+type,trigger,message,time,email_sent,whatsapp_sent
+info,Registration,You registered for HackFest 2025. Good luck!,2 hours ago,Yes,Yes
+success,Certificate,Your certificate for CodeSprint 2024 is ready to download.,3 days ago,Yes,Yes
+warning,Reminder,Annual Cultural Night is tomorrow at 6:00 PM in Auditorium.,1 day ago,Yes,Yes
+success,Result,Results declared for CodeSprint 2024 — You got 2nd Place!,3 days ago,Yes,Yes
+info,Registration,You registered for AI/ML Workshop. See you there!,5 days ago,Yes,Yes

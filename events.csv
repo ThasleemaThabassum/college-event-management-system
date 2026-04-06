@@ -1,0 +1,9 @@
+id,title,category,date,time,venue,capacity,registered,status,organizer,description,emoji
+1,HackFest 2025,Tech,2025-04-12,09:00 AM,CS Lab Block A,80,62,Published,Dr. Priya Rao,24-hour hackathon. Build solutions to real-world college problems. Open to all branches.,💻
+2,Annual Cultural Night,Cultural,2025-04-18,06:00 PM,Auditorium,300,241,Published,Prof. Ramesh,Music dance drama and more. Celebrate culture and creativity with your fellow students.,🎭
+3,Inter-Dept Cricket,Sports,2025-04-20,08:00 AM,Sports Ground,60,58,Published,Sports Dept,Interdepartmental cricket tournament. Register your team of 11 players.,🏏
+4,AI/ML Workshop,Tech,2025-04-25,10:00 AM,Seminar Hall 2,100,34,Published,Dr. Priya Rao,Hands-on ML workshop covering neural networks and model deployment using Python.,🤖
+5,Finance Summit,Academic,2025-05-02,11:00 AM,Conference Room,150,89,Published,Commerce Dept,Industry experts on fintech trends and career paths in finance and investment banking.,📊
+6,Photography Walk,Cultural,2025-05-08,07:00 AM,Campus,40,18,Published,Arts Club,Campus photography walk with mentorship from professional photographers.,📸
+7,CodeSprint 2025,Tech,2025-05-15,09:00 AM,CS Lab B,120,95,Published,ACM Club,Competitive programming contest. Individual participation. Prizes worth Rs 10000.,⚡
+8,Yoga & Wellness,Sports,2025-05-20,06:00 AM,Open Ground,200,67,Published,NSS Club,Morning yoga session with certified instructor. Free for all students.,🧘
