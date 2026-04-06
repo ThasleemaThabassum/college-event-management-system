@@ -1,5 +1,4 @@
-# college-event-management-system
-College Event Management System — Python Django + MySQL
+
 # 🎓 CEMS — College Event Management System
 
 ### Student Dashboard (Streamlit App)
